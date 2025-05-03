@@ -38,7 +38,7 @@ header .logo span{
     color: transparent;
 }
 header .logo{
-    font-size: clamp(1.5em,5vw,3em);
+    font-size: clamp(1.5em,5vw,2.8em);
     color: rgb(255, 255, 255,.9);
     text-shadow: 0 5px 10px rgb(0,0,0,.4);
     font-weight: 600;
@@ -108,13 +108,9 @@ nav ul li a:hover{
     left: 5px;
     top: 5px;
 }
-.image-home{
-   max-width: 500px;
-   min-width: 200px;
-   width: 100%;
-}
-.image-home img{
-    width: 100%;
+
+.image-home img,.image-about img{
+    width: clamp(200px,80vw,480px);
 }
 /* end home part !!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -139,10 +135,6 @@ nav ul li a:hover{
 }
 .text-about p{
     font-size: clamp(0.95em,5vw,1.3em);
-}
-.image-about img{
-    width: clamp(200px,80vw,500px);
-
 }
 /* about me part end */
 
