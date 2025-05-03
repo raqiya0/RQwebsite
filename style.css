@@ -80,7 +80,7 @@ nav ul li a:hover{
     display: none;
 }
 .title-home h1{
-    font-size: clamp(2.5em,5vw,3.5em);
+    font-size: clamp(2.5em,5vw,3em);
     text-wrap: nowrap;    
     text-transform: uppercase;
 }
