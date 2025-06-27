@@ -142,81 +142,134 @@ nav ul li a:hover{
 /* part of myproject cards */
 #myproject{
     background: url(image/svg/background.svg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
     height: fit-content;
 }
-.content-project{
-    padding: 20px;
+#myproject::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(34, 40, 49, 0.7);
+    z-index: 0;
+}
+.content-project {
+    position: relative;
+    z-index: 1;
+    padding: 40px 20px 20px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .content-project h1,.content-contact h1{ 
     font-size: clamp(1.5em,5vw,2.5em);
     margin-bottom: 30px;
     margin-top: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 .content-project h1 span,.content-contact h1 span{ 
     color: #00ADB5;
 }
 .projects{
-    margin-left: 30px;
+    margin-left: 0;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    gap: 20px;
+    gap: 30px;
     place-items: center;
+    width: 100%;
 }
 .projects .card-pro{
     max-width: 350px;
     border: 2px solid transparent;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0,.2);
+    padding: 18px 18px 24px 18px;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
     backdrop-filter: blur(10px);
-    transition: .3s;
+    transition: transform 0.3s cubic-bezier(.4,2,.3,1), box-shadow 0.3s;
     display: block;
-
+    background: linear-gradient(135deg, rgba(0,173,181,0.08) 0%, rgba(34,40,49,0.95) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.card-pro::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0; height: 60px;
+    background: linear-gradient(0deg, rgba(0,173,181,0.12) 0%, transparent 100%);
+    border-radius: 0 0 24px 24px;
+    z-index: 0;
 }
 .card-pro img{
     width: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,173,181,0.08);
 }
 .card-pro span{
-    background: #d6f8d6;
-    color: #856404;
-    padding: 2px 10px;
+    background: rgba(0, 173, 181, 0.15);
+    color: #00ADB5;
+    padding: 4px 16px;
     font-weight: 600;
     display: block;
     width: fit-content;
     border-radius: 20px;
-    margin:10px 0;
+    margin:14px 0 8px 0;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 4px rgba(0,173,181,0.08);
 }
 .card-pro p{
-    font-size: clamp(0.7em,5vw,1.1em);
+    font-size: clamp(0.8em,5vw,1.15em);
     font-weight: 500;
+    margin-bottom: 18px;
+    color: #EEEEEE;
+    z-index: 1;
+    position: relative;
 }
 .card-pro button{
-    color: white;
-    background: transparent;
-    rotate: -45deg;
+    color: #00ADB5;
+    background: #222831;
+    border: none;
     border-radius: 50%;
-    border: 2px solid;
-    margin: 15px 0;
-    transition: .3s;
+    width: 44px;
+    height: 44px;
+    font-size: 2em;
+
+    box-shadow: 0 2px 8px rgba(0,173,181,0.08);
+    margin: 0 auto;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
 }
 .projects .card-pro:hover{
     border-color: #00ADB5;
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px 0 rgba(0,173,181,0.18);
 }
 .projects .card-pro:hover button{
     background: #00ADB5;
-    color: black;
+    color: #222831;
+    transform: scale(1.1) rotate(-45deg);
 }
-/* end of myproject cards */
-/* footer section */
-.content-contact{
-    text-align: center;
+
+/* Sticky header for better UX */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(34, 40, 49, 0.98);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.socail-media{
+
+/* Fix typo in social-media class */
+.social-media{
     display: flex;
     justify-content: center;
 }
@@ -234,7 +287,6 @@ nav ul li a:hover{
     background: #00ADB5;
 }
 .media a i{
-    /* padding-top: 8px; */
     display: block;
     font-size: 30px;
     font-weight: 400;
@@ -248,17 +300,19 @@ nav ul li a:hover{
     margin-top: 50px;
     text-transform: capitalize;
 }
-.socail-media a .rq{
+.social-media a .rq{
     width: 80%;
     height: 50px;
     width: 50px;
     border-radius: 50%;
 }
 
-/* footer section!!!! end */
+/* Smooth transitions for interactive elements */
+a, button, .card-pro, .media {
+    transition: all 0.3s cubic-bezier(.4,2,.3,1);
+}
 
-
-/* middle size................ */
+/* Responsive improvements */
 @media (max-width:768px) {
     .container{
         max-width: 768px;
@@ -270,32 +324,30 @@ nav ul li a:hover{
     .title-home h1{
         margin-top: 30px;
     }
-    /* bar icon */
     nav .icon-bar{
-    display: block;
+        display: block;
     }
     header{
-        position: relative;
+        position: sticky;
         width: 100%;
     }
     .ul{
         display: none;
     }
     nav ul{
-    flex-direction: column;
-    position: absolute;
-    right: 0;
-    background: #000;
-    width: 100%;
-    text-align: center;
-    z-index: 100;
-    background: #32363f;
-    gap: 20px;
-    padding: 40px 0;
-    border-radius: 10px;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        background: #32363f;
+        width: 100%;
+        text-align: center;
+        z-index: 100;
+        gap: 20px;
+        padding: 40px 0;
+        border-radius: 10px;
     }
     nav ul li a{
-    color: white;
+        color: white;
     }
     .content-about{
         flex-direction: column;
@@ -303,21 +355,21 @@ nav ul li a:hover{
     .text-about img{
         translate: 280px -40px;
     }
-    /* about me part end */
     .projects{
         margin-left: 0;
-        grid-template-columns: repeat(1,1fr)
+        grid-template-columns: repeat(1,1fr);
+        gap: 24px;
     }
 }
 @media (min-width:1200px){
     .container{
         min-width: 1000px;
     }
-     .text-home .arrow{
+    .text-home .arrow{
         display: block;
         position: absolute;
-       left: -80px;
-       top: 65px;
+        left: -80px;
+        top: 65px;
     }
     header .logo{
         margin-left:-50px ;
@@ -327,6 +379,6 @@ nav ul li a:hover{
     }
     .projects{
         grid-template-columns: repeat(3,1fr);
+        gap: 36px;
     }
-
 }
