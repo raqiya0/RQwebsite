@@ -197,14 +197,6 @@ nav ul li a:hover{
     position: relative;
     overflow: hidden;
 }
-.card-pro::after {
-    content: '';
-    position: absolute;
-    left: 0; right: 0; bottom: 0; height: 60px;
-    background: linear-gradient(0deg, rgba(0,173,181,0.12) 0%, transparent 100%);
-    border-radius: 0 0 24px 24px;
-    z-index: 0;
-}
 .card-pro img{
     width: 100%;
     object-fit: cover;
@@ -223,7 +215,7 @@ nav ul li a:hover{
     font-size: 1.1em;
     letter-spacing: 1px;
     box-shadow: 0 1px 4px rgba(0,173,181,0.08);
-}
+} 
 .card-pro p{
     font-size: clamp(0.8em,5vw,1.15em);
     font-weight: 500;
@@ -259,13 +251,7 @@ nav ul li a:hover{
 }
 
 /* Sticky header for better UX */
-header {
-    position: sticky;
-    top: 0;
-    background: rgba(34, 40, 49, 0.98);
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
+
 
 /* Fix typo in social-media class */
 .social-media{
